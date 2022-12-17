@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "edu.binghamton.cs";
+option java_outer_classname = "FibonacciProto";
+option objc_class_prefix = "FIB";
+
+package binghamton;
+
+message FibonacciRequest {
+  uint32 n = 1;
+}
+
+message FibonacciResponse {
+  uint32 f = 1;
+}
+
+service Fibonacci {
+  rpc Fibonacci(FibonacciRequest) returns (FibonacciResponse);
+}

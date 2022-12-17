@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+      <artifactId>my-fibonacci</artifactId>
+      <groupId>edu.binghamton.cs</groupId>
+      <version>${project.version}</version>
+      <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>server</artifactId>
+  <name>server</name>
+
+  <properties>
+      <main.class>edu.binghamton.cs.FibonacciServer</main.class>
+  </properties>
+
+  <dependencies>
+    <dependency>
+        <groupId>edu.binghamton.cs</groupId>
+        <artifactId>schema</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>edu.binghamton.cs</groupId>
+        <artifactId>core</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
+      <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M7</version>
+          <dependencies>
+            <dependency>
+                <groupId>org.apache.maven.surefire</groupId>
+                <artifactId>surefire-junit47</artifactId>
+                <version>3.0.0-M7</version>
+            </dependency>
+          </dependencies>
+      </plugin>
+      <plugin>
+          <groupId>pw.krejci</groupId>
+          <artifactId>jmh-maven-plugin</artifactId>
+          <version>0.2.2</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
